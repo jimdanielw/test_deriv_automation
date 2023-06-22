@@ -1,0 +1,41 @@
+version: 2.1
+
+commands:
+  build:
+    description: "Build"
+    steps:
+      - run:
+          name: "Building all packages"
+          command: npm run build
+  wait_for_build:
+    description: "Wait for build"
+    steps:
+      - run:
+          name: "Waiting for build"
+          command: sleep 60
+  test:
+    description: "Test"
+    steps:
+      - run:
+          name: "Test"
+          command: npm run test
+
+jobs:
+  release_staging:
+    docker:
+      - image: cimg/node:16.16.0
+    steps:
+      - checkout
+      - run: npm install
+      - build
+      - test
+      - wait_for_build
+
+workflows:
+  release_staging:
+    jobs:
+      - release_staging:
+          context: test-deriv-app-context
+          filters:
+            branches:
+              only: /^master$/
