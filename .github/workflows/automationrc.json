@@ -12,7 +12,7 @@
         "checks_limit": 40
     },
     "circleci": {
-        "project_slug": "gh/jimdanielw/deriv-app",
+        "project_slug": "gh/jimdanielw/test_deriv_automation",
         "branch": "master",
         "workflow_name": "release_staging"
     },
