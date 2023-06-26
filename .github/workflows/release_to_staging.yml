@@ -40,6 +40,6 @@ jobs:
                   skip_pending_checks: ${{ inputs.skip_pending_checks }}
                   CIRCLECI_TOKEN: ${{ secrets.CIRCLECI_TOKEN }}
                   CLICKUP_API_TOKEN: ${{ secrets.CLICKUP_API_TOKEN }}
-                  SLACK_APP_TOKEN: "123"
-                  SLACK_USER_TOKEN: "123"
-                  SLACK_BOT_TOKEN: "123"
+                  SLACK_APP_TOKEN: ${{ secrets.SLACK_APP_TOKEN }}
+                  SLACK_USER_TOKEN: ${{ secrets.SLACK_USER_TOKEN }}
+                  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
